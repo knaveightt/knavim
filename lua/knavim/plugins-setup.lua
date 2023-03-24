@@ -65,6 +65,50 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
 
+  -- basic autocompletion
+  use("hrsh7th/nvim-cmp")   -- completion engine
+  use("hrsh7th/cmp-buffer") -- source completions from the buffer
+  use("hrsh7th/cmp-path") -- source file path completions
+
+  -- code snippets
+  use("L3MON4D3/LuaSnip")   -- snippets engine
+  use("saadparwaiz1/cmp_luasnip") -- source completions for snippets
+  use("rafamadriz/friendly-snippets") -- useful language snippets
+
+  --
+  -- Full LSP Server Configuration
+  --
+
+  -- managing & installing lsp servers, as well as formatters and linters
+  use("williamboman/mason.nvim")            -- core installer
+  use("williamboman/mason-lspconfig.nvim")  -- connect to core nvim lspconfig
+
+  -- configuring the lsp servers
+  use("neovim/nvim-lspconfig")              -- core nvim lspconfig
+  use("hrsh7th/cmp-nvim-lsp")               -- completions for lspconfig
+  use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp ui
+  use("onsails/lspkind.nvim")                    -- vscode icons to autocompletion window
+
+  -- formatting and linting (for future)
+  --use("jose-elias-alvarez/null-ls.nvim") -- configuring the formatters / linters
+  --use("jayp0521/mason-null-ls.nvim") -- install formatters / linters through mason
+
+  -- treesitter 
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      ts_update()
+    end,
+  })
+
+  -- auto closing
+  use("windwp/nvim-autopairs")
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
+
+  -- gitsigns
+  use("lewis6991/gitsigns.nvim")
+
   -- bootstrap packer with this configuration
   if packer_bootstrap then
     require("packer").sync()
