@@ -109,6 +109,9 @@ return packer.startup(function(use)
   -- gitsigns
   use("lewis6991/gitsigns.nvim")
 
+  -- start screen / dashboard
+  use({ "startup-nvim/startup.nvim", requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"}})
+
   -- bootstrap packer with this configuration
   if packer_bootstrap then
     require("packer").sync()

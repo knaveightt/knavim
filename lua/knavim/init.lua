@@ -29,3 +29,6 @@ require("knavim.plugins.lsp.lspconfig")
 -- autopairs and treesitter related things
 require("knavim.plugins.autopairs")
 require("knavim.plugins.treesitter")
+
+-- startup dashboard config
+require("knavim.plugins.startup")
