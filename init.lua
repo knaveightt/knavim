@@ -1,4 +1,3 @@
--- require my module of tweaks
--- greatly inspired by josean's video tutorial
--- his repo: github.com/josean-dev/dev-environment-files
-require("knavim")
+-- requiring my configuration module
+-- mostly inspired by martinlwx.github.io/en/config-neovim-from-scratch
+require("knavenvim")
